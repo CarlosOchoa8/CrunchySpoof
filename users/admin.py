@@ -5,6 +5,8 @@ from .models import User
 
 
 @admin.register(User)
-class UserAdmin(UserAdmin):
-    # list_display = ['first_name', 'last_name']
-    pass
+class UserAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name']
+
+
+# admin.site.register(User)

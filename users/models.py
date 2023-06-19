@@ -1,6 +1,5 @@
 from django.db import models, transaction
-# from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, AbstractUser
+from django.contrib.auth.models import BaseUserManager, AbstractUser
 
 
 class UserManager(BaseUserManager):
@@ -16,9 +15,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    first_name = models.CharField(max_length=50, null=False)
-    last_name = models.CharField(max_length=50, null=False)
-    # email = models.EmailField(max_length=50, unique=True, null=False)
-    # username = models.CharField(max_length=50)
-    is_premium = models.BooleanField(verbose_name='Es usuario premium')
-    premium_type = models.CharField(max_length=20, verbose_name='Tipo de suscripción', default=None)
+    profile_image = models.ImageField('users/profile', null=True, blank=True)
+    profile_cover = models.ImageField('users/profile', null=True, blank=True)
+    is_premium = models.BooleanField(verbose_name='Es usuario premium', default=False)
+    premium_type = models.CharField(max_length=20, verbose_name='Tipo de suscripción', default='Free')
