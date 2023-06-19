@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'anime_list',
+    'anime_genre',
+    'episodes',
+    'episode_comment',
 ]
 
 MIDDLEWARE = [
