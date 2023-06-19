@@ -5,7 +5,7 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'username', 'is_premium', 'premium_type']
+        fields = ['first_name', 'last_name', 'password', 'email', 'username', 'is_premium', 'premium_type']
 
     def create(self, validated_data):
         password = validated_data.pop('password', None)
