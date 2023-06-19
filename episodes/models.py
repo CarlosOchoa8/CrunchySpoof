@@ -1,8 +1,8 @@
 from django.db import models
 from django.db.models import CASCADE
-from ..users.models import User
-from ..anime_genre.models import Genre
-from ..anime_list.models import Anime
+from users.models import User
+from anime_genre.models import Genre
+from anime_list.models import Anime
 
 
 class Episode(models.Model):
