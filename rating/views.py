@@ -14,13 +14,11 @@ class RateAnimeView(APIView):
     permission_clases = [IsAuthenticated]
 
     def post(self, request):
-        print('*' * 150)
         serializer = AddRateAnimeSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             user = request.user
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        print('antes de anime in db')
         user = request.user
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
