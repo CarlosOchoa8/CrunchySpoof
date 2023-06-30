@@ -25,7 +25,6 @@ class AnimeView(APIView):
 
 
 class AnimeDetailAPIView(RetrieveAPIView):
-    permission_classes = [IsAuthenticated]
     serializer_class = AnimeSerializer
     queryset = Anime.objects.filter()
 

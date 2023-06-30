@@ -11,25 +11,21 @@ from .models import Episode
 
 
 class UploadAnimeView(ModelViewSet):
-    permission_classes = [IsAuthenticated]
     serializer_class = AddEpisodeSerializer
     queryset = Episode.objects.all()
 
 
 class ListEpisodesAPIView(ListAPIView):
-    permission_classes = [IsAuthenticated]
     serializer_class = ListEpisodeSerializer
     queryset = Episode.objects.all()
 
 
 class EpisodeDetailAPIView(RetrieveAPIView):
-    permission_classes = [IsAuthenticated]
     serializer_class = EpisodeSerializer
     queryset = Episode.objects.filter()
 
 
 class EpisodeUpdateAPIView(UpdateAPIView):
-    permission_classes = [IsAuthenticated]
     serializer_class = UpdateEpisodeSerializer
     queryset = Episode.objects.filter()
 

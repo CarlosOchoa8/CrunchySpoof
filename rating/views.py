@@ -11,7 +11,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class RateAnimeView(APIView):
-    permission_clases = [IsAuthenticated]
 
     def post(self, request):
         serializer = AddRateAnimeSerializer(data=request.data, context={'request': request})
