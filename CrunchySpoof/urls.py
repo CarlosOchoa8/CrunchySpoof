@@ -16,10 +16,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from episodes.urls import router_episodes
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="CrunchySpoof documentation",
+      default_version='v1',
+      description="Blog Documentation",
+      terms_of_service="",
+      contact=openapi.Contact(email="carlosochoa@tae.capital"),
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+)
 
 urlpatterns = [
+    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redocs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('api/', include('users.urls')),
     path('api/', include('anime_list.urls')),
-    path('api/', include('rating.urls'))
-         ]
+    path('api/', include('rating.urls')),
+    path('api/', include('episodes.urls')),
+         ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
