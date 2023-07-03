@@ -23,4 +23,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
-    pass
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['username'] = user.username
+        token['email'] = user.email
+        token['premium_type'] = user.premium_type
+
+        return token
+    # pass
