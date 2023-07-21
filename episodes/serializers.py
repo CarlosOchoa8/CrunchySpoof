@@ -56,6 +56,7 @@ class UpdateEpisodeSerializer(serializers.ModelSerializer):
         representation['anime'] = instance.anime.name
         return instance
 
+
 class ListEpisodeSerializer(serializers.ModelSerializer):
 
     class Meta:

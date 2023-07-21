@@ -43,4 +43,5 @@ urlpatterns = [
     path('api/', include('anime_list.urls')),
     path('api/', include('rating.urls')),
     path('api/', include('episodes.urls')),
+    path('api/', include('episode_comment.urls')),
          ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
